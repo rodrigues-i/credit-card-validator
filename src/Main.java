@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
-        String cardNumber = "343426965808713"; // Replace with actual card number
+        String cardNumber = "869994893864771"; // Replace with actual card number
         Map<String, Object> result = validateCreditCardNumber(cardNumber);
         System.out.println(result);
     }
@@ -17,6 +17,10 @@ public class Main {
         cardTypes.put("discover", Pattern.compile("^6(?:011|5[0-9]{2})[0-9]{12}$"));
         cardTypes.put("diners", Pattern.compile("^3(?:0[0-5]|[68][0-9])[0-9]{11}$"));
         cardTypes.put("jcb", Pattern.compile("^(?:2131|1800|35\\d{3})\\d{11}$"));
+        cardTypes.put("enroute", Pattern.compile("^(2014|2149)\\d{11}$"));
+        cardTypes.put("voyager", Pattern.compile("^8699[0-9]{11}$"));
+        cardTypes.put("hipercard", Pattern.compile("^(606282|3841)[0-9]{10,12}$"));
+        cardTypes.put("aura", Pattern.compile("^50[0-9]{14,17}$"));
 
         String cardType = null;
         for (Map.Entry<String, Pattern> entry : cardTypes.entrySet()) {
